@@ -1,4 +1,4 @@
-HELP.md
+WebServer/HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -35,3 +35,38 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+WebServer/coew/node_modules
+WebServer/coew/.pnp
+WebServer/coew/.pnp.js
+WebServer/coew/.yarn/install-state.gz
+
+# testing
+WebServer/coew/coverage
+
+# next.js
+WebServer/coew/.next/
+WebServer/coew/out/
+
+# production
+WebServer/coew/build
+
+# misc
+WebServer/coew.DS_Store
+WebServer/coew*.pem
+
+# debug
+WebServer/coew/npm-debug.log*
+WebServer/coew/yarn-debug.log*
+WebServer/coew/yarn-error.log*
+
+# local env files
+WebServer/coew.env*.local
+
+# vercel
+WebServer/coew.vercel
+
+# typescript
+WebServer/coew/*.tsbuildinfo
+WebServer/coew/next-env.d.ts

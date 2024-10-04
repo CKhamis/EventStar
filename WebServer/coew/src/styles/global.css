@@ -1,0 +1,8 @@
+@layer components{
+    .tooltip-right{
+        @apply absolute w-auto p-2 m-2 min-w-max left-14 shadow-md
+        text-white bg-gray-900
+        text-xs font-bold
+        transition-all duration-200 scale-0 origin-left;
+    }
+}
