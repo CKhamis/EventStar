@@ -5,7 +5,7 @@ import { Tooltip } from 'react-tooltip'
 
 const Sidebar = () => {
     return (
-        <div className="fixed top-0 w-16 h-screen bg-gray-900 left-0 flex flex-col">
+        <div className="fixed top-0 w-16 h-screen bg-gray-900 left-0 flex flex-col z-50">
             <ul className="flex-grow">
                 <li className="mb-4" data-tooltip-id="my-tooltip" data-tooltip-content="Home" data-tooltip-place="right">
                     <a href="http://costionline.com" className="decoration-0" role="button">

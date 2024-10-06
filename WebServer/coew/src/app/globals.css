@@ -25,3 +25,9 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components{
+  .hover-underline{
+    @apply hover:underline hover:underline-offset-4;
+  }
+}
