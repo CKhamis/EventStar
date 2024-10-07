@@ -6,7 +6,7 @@ import React from 'react';
 const TopBar = () => {
     const [expanded, setExpanded] = React.useState(false);
     return (
-        <div className="fixed top-0 w-screen bg-gray-900 left-0 flex flex-row z-50 justify-between">
+        <div className="sticky top-0 w-screen bg-gray-900 left-0 flex flex-row z-50 justify-between">
             <a href="http://costionline.com" className="decoration-0 flex flex-row items-center mr-4 p-2" role="button">
                 <Image src="/icons/Logo.svg" alt="logo" className="aspect-square p-1 transition-transform duration-200 ease-in-out transform hover:scale-90" width={45} height={45}/>
                 <p className="text-xl font-bold ml-1">EventStar</p>
@@ -21,7 +21,7 @@ const TopBar = () => {
             </div>
 
             <div className="flex items-center gap-6 p-2" onClick={() => setExpanded(!expanded)}>
-                <Image src="/icons/Logo.svg" alt="logo" className="aspect-square p-2 transition-transform duration-200 ease-in-out transform hover:scale-90 md:hidden" width={45} height={45}/>
+                <Image src="/icons/Menu.svg" alt="logo" className="aspect-square p-2.5 transition-transform duration-200 ease-in-out transform hover:scale-90 md:hidden" width={45} height={45}/>
             </div>
         </div>
     );
