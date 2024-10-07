@@ -1,29 +1,56 @@
 "use client";
-import Image from 'next/image';
-import 'react-tooltip/dist/react-tooltip.css'
-import React from 'react';
+import Link from "next/link"
+import {
+    Menu,
+} from "lucide-react"
+import {Button} from "@/components/ui/button"
+import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
+import Image from "next/image";
+import AccountButton from "@/components/AccountButton";
 
-const TopBar = () => {
-    const [expanded, setExpanded] = React.useState(false);
+const TopBar = ({ isLoggedIn=false }) => {
+    const links = [
+        <Link href="#" className="hover:text-foreground">Dashboard</Link>,
+        <Link href="#" className="hover:text-foreground">Dashboard</Link>,
+        <Link href="#" className="hover:text-foreground">Dashboard</Link>,
+        <Link href="#" className="hover:text-foreground">Dashboard</Link>
+    ];
+
     return (
-        <div className="sticky top-0 w-screen bg-gray-900 left-0 flex flex-row z-50 justify-between">
-            <a href="http://costionline.com" className="decoration-0 flex flex-row items-center mr-4 p-2" role="button">
-                <Image src="/icons/Logo.svg" alt="logo" className="aspect-square p-1 transition-transform duration-200 ease-in-out transform hover:scale-90" width={45} height={45}/>
-                <p className="text-xl font-bold ml-1">EventStar</p>
-            </a>
-
-            <div className={`md:static absolute w-full flex-items-center bg-gray-900 ${expanded? 'top-[100%] opacity-100' : 'top-[-50vh] opacity-0 md:opacity-100'} md:min-h-fit md:ml-10 transition-all duration-700 ease-in-out`}>
-                <ul className="flex md:flex-row flex-col items-center md:gap-8 gap-12 h-full pb-10 pt-5 md:p-0">
-                    <li className="text-lg md:text-base"><a href="" className="hover-underline">Text</a></li>
-                    <li className="text-lg md:text-base"><a href="" className="hover-underline">Text</a></li>
-                    <li className="text-lg md:text-base"><a href="" className="hover-underline">Text</a></li>
-                </ul>
+        <header className="sticky top-0 h-16 gap-4 border-b bg-background px-4 md:px-6 flex justify-between items-center">
+            <div className="flex flex-row items-center justify-start gap-2">
+                <Link href="/">
+                    <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30}/>
+                </Link>
+                <Link href="/" className="text-foreground transition-colors hover:text-foreground font-bold">
+                    EventStar
+                </Link>
+                <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 ml-4">
+                    {links}
+                </nav>
+            </div>
+            <div className="flex flex-row items-center justify-end gap-6">
+                <AccountButton isLoggedIn={isLoggedIn} />
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button variant="outline" size="icon" className="shrink-0 md:hidden" >
+                            <Menu className="h-5 w-5"/>
+                            <span className="sr-only">Toggle navigation menu</span>
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="left">
+                        <nav className="grid gap-6 text-lg font-medium">
+                            <Link href="/" className="flex-row flex gap-3">
+                                <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30}/>
+                                <p className="font-bold">EventStar</p>
+                            </Link>
+                            {links}
+                        </nav>
+                    </SheetContent>
+                </Sheet>
             </div>
 
-            <div className="flex items-center gap-6 p-2" onClick={() => setExpanded(!expanded)}>
-                <Image src="/icons/Menu.svg" alt="logo" className="aspect-square p-2.5 transition-transform duration-200 ease-in-out transform hover:scale-90 md:hidden" width={45} height={45}/>
-            </div>
-        </div>
+        </header>
     );
 }
 

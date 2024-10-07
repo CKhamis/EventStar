@@ -1,43 +1,97 @@
 "use client";
 import Image from 'next/image';
-import 'react-tooltip/dist/react-tooltip.css'
-import { Tooltip } from 'react-tooltip'
+import Link from "next/link"
+import {
+    CircleUser,
+} from "lucide-react"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
+import AccountButton from "./AccountButton";
 
-const Sidebar = () => {
+const Sidebar = (isLoggedIn=false) => {
     return (
-        <div className="fixed top-0 w-16 h-screen bg-gray-900 left-0 flex flex-col z-50">
-            <ul className="flex-grow">
-                <li className="mb-4" data-tooltip-id="my-tooltip" data-tooltip-content="Home" data-tooltip-place="right">
-                    <a href="http://costionline.com" className="decoration-0" role="button">
-                        <Image src="/icons/Logo.svg" alt="logo" className="aspect-square p-2.5" width={100}
-                               height={100}/>
-                    </a>
-                    <Tooltip id="my-tooltip" />
-                </li>
-
-                <SideBarIcon iconSrc="/icons/Logo.svg" selected={true} text="rat" url="/" />
-                <SideBarIcon iconSrc="/icons/Logo.svg" selected={false} text="brat" url="/" />
-                <SideBarIcon iconSrc="/icons/Logo.svg" selected={false} text="fat" url="/" />
-                <SideBarIcon iconSrc="/icons/Logo.svg" selected={false} text="rat" url="/" />
-                <SideBarIcon iconSrc="/icons/Logo.svg" selected={false} text="rat" url="/" />
-
-            </ul>
-            <div className="bottom-0">
-                <Image src="/icons/Logo.svg" alt="logo" className="aspect-square p-2.5" width={100}
-                       height={100}/>
-            </div>
-        </div>
+        <TooltipProvider>
+            <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
+                <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
+                    <Link
+                        href="/"
+                        className="group flex h-9 w-9 md:h-8 md:w-8 md:text-base"
+                    >
+                        <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30}/>
+                    </Link>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href="#"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                            >
+                                <CircleUser className="h-5 w-5"/>
+                                <span className="sr-only">Dashboard</span>
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent side="right">Dashboard</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href="#"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                            >
+                                <CircleUser className="h-5 w-5"/>
+                                <span className="sr-only">Orders</span>
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent side="right">Orders</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href="#"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                            >
+                                <CircleUser className="h-5 w-5"/>
+                                <span className="sr-only">Products</span>
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent side="right">Products</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href="#"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                            >
+                                <CircleUser className="h-5 w-5"/>
+                                <span className="sr-only">Customers</span>
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent side="right">Customers</TooltipContent>
+                    </Tooltip>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href="#"
+                                className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                            >
+                                <CircleUser className="h-5 w-5"/>
+                                <span className="sr-only">Analytics</span>
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent side="right">Analytics</TooltipContent>
+                    </Tooltip>
+                </nav>
+                <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
+                    <AccountButton isLoggedIn={isLoggedIn} />
+                </nav>
+            </aside>
+        </TooltipProvider>
     );
 }
 
-const SideBarIcon = ({iconSrc, url, text, selected}) => (
-    <li className={`border-b border-gray-600 group ${selected ? 'bg-gray-700' : 'bg-transparent'} hover:bg-gray-800`} data-tooltip-id="my-tooltip" data-tooltip-content={text} data-tooltip-place="right">
-        <a href={url} className="decoration-0" role="button">
-            <Image src={iconSrc} alt={text} className="aspect-square p-3 transition-transform duration-200 ease-in-out transform hover:scale-90" width={100} height={100}/>
-        </a>
-        <Tooltip id="my-tooltip" />
-    </li>
-);
 
 
 export default Sidebar;

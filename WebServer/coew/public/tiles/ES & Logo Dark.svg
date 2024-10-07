@@ -9,13 +9,8 @@
       .cls-2 {
         opacity: .06;
       }
-
-      .cls-3 {
-        fill: #111827;
-      }
     </style>
   </defs>
-  <rect class="cls-3" width="180" height="180"/>
   <g class="cls-2">
     <g>
       <rect class="cls-1" x="155.7" y="11.9" width="12.4" height="12.4"/>
