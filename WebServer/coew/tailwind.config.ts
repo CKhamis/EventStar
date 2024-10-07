@@ -8,6 +8,9 @@ const config: Config = {
   ],
   mode: 'jit',
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       colors: {
         background: "var(--background)",
