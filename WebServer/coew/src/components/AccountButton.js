@@ -43,7 +43,7 @@ const AccountButton = ({ isLoggedIn= false }) => {
                 <DropdownMenuContent align="end">
                     <DropdownMenuItem><Link href="/">Register</Link></DropdownMenuItem>
                     <DropdownMenuSeparator/>
-                    <DropdownMenuItem><Link href="/">Sign In</Link></DropdownMenuItem>
+                    <DropdownMenuItem><Link href="/login">Sign In</Link></DropdownMenuItem>
                     <DropdownMenuItem><Link href="https://costionline.com/SignUp">Sign Up</Link></DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>

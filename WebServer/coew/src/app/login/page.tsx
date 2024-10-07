@@ -1,5 +1,5 @@
 import TopBar from "../../components/TopBar";
-import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
+import {Card, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
@@ -12,15 +12,15 @@ export default function Home() {
         <TopBar/>
         <div className="mt-10 flex justify-center items-center">
           <Card className="w-full max-w-sm rounded-none gradient">
-            <CardHeader className="flex flex-row gap-3 justify-start items-center">
+            <div className="flex flex-row gap-3 justify-start items-center p-6">
               <Image src={`/icons/COW Logo.svg`} alt={`Costi Online Logo`} width={40} height={40} className="hover-minimize"/>
-              <div className="mt-0">
+              <div className="m-0">
                 <CardTitle className="text-2xl">Sign In</CardTitle>
                 <CardDescription>
                   Enter your Costi Online Credentials.
                 </CardDescription>
               </div>
-            </CardHeader>
+            </div>
             <CardContent className="grid gap-4">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
