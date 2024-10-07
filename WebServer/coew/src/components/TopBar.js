@@ -10,17 +10,17 @@ import AccountButton from "@/components/AccountButton";
 
 const TopBar = ({ isLoggedIn=false }) => {
     const links = [
-        <Link href="#" className="hover:text-foreground">Dashboard</Link>,
-        <Link href="#" className="hover:text-foreground">Dashboard</Link>,
-        <Link href="#" className="hover:text-foreground">Dashboard</Link>,
-        <Link href="#" className="hover:text-foreground">Dashboard</Link>
+        <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>,
+        <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>,
+        <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>,
+        <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>
     ];
 
     return (
         <header className="sticky top-0 h-16 gap-4 border-b bg-background px-4 md:px-6 flex justify-between items-center">
             <div className="flex flex-row items-center justify-start gap-2">
                 <Link href="/">
-                    <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30}/>
+                    <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30} className="hover-minimize"/>
                 </Link>
                 <Link href="/" className="text-foreground transition-colors hover:text-foreground font-bold">
                     EventStar

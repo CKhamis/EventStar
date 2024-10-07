@@ -21,7 +21,7 @@ const Sidebar = (isLoggedIn=false) => {
                         href="/"
                         className="group flex h-9 w-9 md:h-8 md:w-8 md:text-base"
                     >
-                        <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30}/>
+                        <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30} className="hover-minimize"/>
                     </Link>
                     <Tooltip>
                         <TooltipTrigger asChild>
