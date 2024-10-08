@@ -1,3 +1,4 @@
+"use client";
 import TopBar from "../../components/TopBar";
 import {Card, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
 import { Label } from "@radix-ui/react-dropdown-menu";
@@ -5,6 +6,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import Link from "next/link"
 import Image from "next/image";
+import axios from "axios";
 
 export default function Home() {
   return (
@@ -31,7 +33,7 @@ export default function Home() {
                 <Input id="password" type="password" required/>
               </div>
               <div className="grid gap-2">
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" onClick={() => check()}>
                   Sign In
                 </Button>
               </div>
@@ -47,4 +49,20 @@ export default function Home() {
         </div>
       </>
   );
+
+  function check(){
+    console.log("checking")
+    axios.get('http://localhost:80/api/project/all')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        });
+  }
 }
+
+
