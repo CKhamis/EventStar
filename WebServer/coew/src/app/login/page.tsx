@@ -16,13 +16,10 @@ export default function Home() {
     const handleSubmit = () => {
         const state = {username, password};
         console.log(state);
-
-        const headers = {
-            'Content-Type': 'application/json',
-        };
-
         axios
-            .post('http://localhost:85/api/auth/signin', state, {headers})
+            .post('http://localhost:3002/api/auth/login', state, {
+                withCredentials: true,
+            })
             .then(function (response) {
                 console.log(response);
                 localStorage.setItem('token', response.data.token);
@@ -51,7 +48,7 @@ export default function Home() {
                     </div>
                     <CardContent className="grid gap-4">
                         <div className="grid gap-2">
-                            <Label htmlFor="email">Email</Label>
+                            <Label>Email</Label>
                             <Input
                                 id="email"
                                 type="email"
@@ -63,7 +60,7 @@ export default function Home() {
                             />
                         </div>
                         <div className="grid gap-2">
-                            <Label htmlFor="password">Password</Label>
+                            <Label>Password</Label>
                             <Input
                                 id="password"
                                 type="password"
