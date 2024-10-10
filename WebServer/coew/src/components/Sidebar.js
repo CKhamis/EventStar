@@ -15,8 +15,8 @@ import AccountButton from "./AccountButton";
 const Sidebar = (isLoggedIn=false) => {
     return (
         <TooltipProvider>
-            <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex z-[10]">
-                <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
+            <aside className="fixed inset-y-0 left-0 w-14 flex-col border-r bg-background flex z-[10]">
+                <nav className="flex flex-col items-center gap-4 px-2 py-5">
                     <Link
                         href="/"
                         className="group flex h-9 w-9 md:h-8 md:w-8 md:text-base"
@@ -84,7 +84,7 @@ const Sidebar = (isLoggedIn=false) => {
                         <TooltipContent side="right">Analytics</TooltipContent>
                     </Tooltip>
                 </nav>
-                <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
+                <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-5">
                     <AccountButton isLoggedIn={isLoggedIn} />
                 </nav>
             </aside>
