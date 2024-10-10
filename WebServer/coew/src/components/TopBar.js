@@ -17,7 +17,7 @@ const TopBar = ({ isLoggedIn=false }) => {
     ];
 
     return (
-        <header className="sticky top-0 h-16 gap-4 border-b bg-background px-4 md:px-6 flex justify-between items-center">
+        <header className="sticky top-0 h-16 gap-4 border-b bg-background px-4 md:px-6 flex justify-between items-center z-[10]">
             <div className="flex flex-row items-center justify-start gap-2">
                 <Link href="/">
                     <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30} className="hover-minimize"/>
@@ -41,8 +41,8 @@ const TopBar = ({ isLoggedIn=false }) => {
                     <SheetContent side="left">
                         <nav className="grid gap-6 text-lg font-medium">
                             <Link href="/" className="flex-row flex gap-3">
-                                <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30}/>
-                                <p className="font-bold">EventStar</p>
+                                <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30} className="hover-minimize" />
+                                <p className="font-bold text-2xl">EventStar</p>
                             </Link>
                             {links}
                         </nav>
