@@ -8,10 +8,10 @@ import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
 import Image from "next/image";
 import AccountButton from "@/components/AccountButton";
 
-const TopBar = ({ isLoggedIn=false }) => {
+const TopBar = ({ isLoggedIn=false}) => {
     const links = [
-        <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>,
-        <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>,
+        <Link href="/" className="hover:text-foreground hover-underline">Home</Link>,
+        <Link href="/spots" className="hover:text-foreground hover-underline">Spots</Link>,
         <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>,
         <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>
     ];
