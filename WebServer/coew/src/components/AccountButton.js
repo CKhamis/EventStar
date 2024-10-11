@@ -11,6 +11,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Image from 'next/image';
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
 const AccountButton = ({ isLoggedIn= false }) => {
     if(isLoggedIn){
@@ -18,7 +19,10 @@ const AccountButton = ({ isLoggedIn= false }) => {
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="secondary" size="icon" className="rounded-full">
-                        <Image src={`/icons/Logo.svg`} alt={`Event Star Logo`} width={30} height={30} className="rounded-full"/>
+                        <Avatar className="hidden h-9 w-9 sm:flex">
+                            <AvatarImage src="/icons/Logo.svg" alt="Avatar" />
+                            <AvatarFallback>SD</AvatarFallback>
+                        </Avatar>
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">

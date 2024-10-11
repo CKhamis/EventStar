@@ -1,36 +1,46 @@
 "use client"
 
-
 import {
     Card,
     CardContent,
-    CardDescription,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import {Button} from "@/components/ui/button";
 
-
-import {ToggleGroup, ToggleGroupItem} from "@radix-ui/react-toggle-group";
-
-const RsvpStatus = ({ status= null }) => {
-
+export default function RsvpStatus({status}) {
     return (
-        <Card className="flex flex-col lg:max-w-md">
-            <CardHeader className="px-7">
+        <Card>
+            <CardHeader>
                 <CardTitle>RSVP Status</CardTitle>
-                <CardDescription>
-                    {status === null? "RSVP to the event here" : "Change RSVP status here."}
-                </CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-1 items-center">
-                <ToggleGroup type="single" defaultValue={status} variant="outline">
-                    <ToggleGroupItem value="yes">Yes</ToggleGroupItem>
-                    <ToggleGroupItem value="maybe">Maybe</ToggleGroupItem>
-                    <ToggleGroupItem value="no">No</ToggleGroupItem>
-                </ToggleGroup>
+            <CardContent>
+                <div className="grid gap-6">
+                    <div className="grid gap-3">
+                        <Label htmlFor="status">Status</Label>
+                        <Select>
+                            <SelectTrigger id="status" aria-label="Select status">
+                                <SelectValue placeholder="Select status" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="yes">Yes</SelectItem>
+                                <SelectItem value="maybe">Maybe</SelectItem>
+                                <SelectItem value="no">No</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        {status === null? <Button variant="secondary">Update</Button> : <Button>Save</Button>}
+
+                    </div>
+                </div>
             </CardContent>
         </Card>
     )
 }
-
-export default RsvpStatus;
