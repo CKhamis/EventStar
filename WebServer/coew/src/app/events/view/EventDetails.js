@@ -29,11 +29,19 @@ export default function EventDetails({event}) {
                 <p className="mt-4">Event Description Event Description Event Description Event Description Event Description Event Description Event Description Event Description Event Description Event Description Event Description Event Description Event Description Event Description Event Description </p>
             </CardContent>
             <CardContent>
-
+                <h2 className="text-2xl font-bold">Agenda</h2>
+                <div className="flex-col gap-4">
+                    <div className="flex items-start align-middle gap-4 mt-5">
+                        <div className="grid gap-1 flex-grow">
+                            <p className="text-sm font-medium leading-none">Event Begins</p>
+                            <p className="text-sm text-muted-foreground">
+                                dfaklfj asldkf; jasdk fals kdfjla; sdfkja ls;fjasldfkja
+                            </p>
+                        </div>
+                        <div className="text-xl">6:00PM</div>
+                    </div>
+                </div>
             </CardContent>
-            <CardFooter>
-                <Link href="#calendar"><Button>View Calendar</Button></Link>
-            </CardFooter>
         </Card>
     )
 }
