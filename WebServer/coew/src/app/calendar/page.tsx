@@ -75,7 +75,7 @@ export default function Calendar() {
             <TopBar />
             <div className="flex min-h-screen w-full flex-col">
                 <div className="flex flex-1 flex-col gap-6 p-4 md:gap-5 md:p-8 container">
-                    <TitleBar title="Events" />
+                    <TitleBar title="Calendar" />
                     <main className="grid flex-1 items-start gap-4 lg:grid-cols-3 xl:grid-cols-3">
                         <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
                             <div className="grid gap-4 sm:grid-cols-3">

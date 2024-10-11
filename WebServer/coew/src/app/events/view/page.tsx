@@ -3,6 +3,7 @@ import TopBar from "@/components/TopBar";
 import TitleBar from "@/components/TitleBar";
 import Footer from "@/components/Footer";
 import { useSearchParams } from 'next/navigation';
+import RsvpStatus from "@/app/events/view/RsvpStatus";
 
 
 export default function EventView() {
@@ -14,8 +15,13 @@ export default function EventView() {
             <TopBar isLoggedIn={false}/>
             <div className="flex flex-1 flex-col gap-6 p-4 md:gap-5 md:p-8 container">
                 <TitleBar title="View Event" />
-                <div className="">
-
+                <div className="grid flex-1 items-start gap-4 lg:grid-cols-3 xl:grid-cols-3">
+                    <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
+                        test
+                    </div>
+                    <div>
+                        <RsvpStatus status={"maybe"} />
+                    </div>
                 </div>
             </div>
             <Footer/>

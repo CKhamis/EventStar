@@ -12,7 +12,7 @@ const TopBar = ({ isLoggedIn=false}) => {
     const links = [
         <Link href="/" className="hover:text-foreground hover-underline">Home</Link>,
         <Link href="/spots" className="hover:text-foreground hover-underline">Spots</Link>,
-        <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>,
+        <Link href="/calendar" className="hover:text-foreground hover-underline">Events</Link>,
         <Link href="#" className="hover:text-foreground hover-underline">Dashboard</Link>
     ];
 
