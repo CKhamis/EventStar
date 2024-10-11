@@ -35,7 +35,7 @@ export default function EventView() {
                         <EventDetails event={{}}/>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <RsvpStatus status="maybe" />
+                        <RsvpStatus id="rsvo=p" status="maybe" />
                         <InviteList inviteList={testList} />
                     </div>
                 </div>

@@ -15,12 +15,41 @@ import {CardDescription, CardFooter} from "../../../components/ui/card";
 import Link from "next/link";
 import {Button} from "../../../components/ui/button";
 import {Badge} from "../../../components/ui/badge";
+import {CircleUser} from "lucide-react";
 
 export default function EventDetails({event}) {
     return (
         <Card className="col-span-1 sm:col-span-2" x-chunk="dashboard-05-chunk-0">
             <CardHeader className="pb-3">
-                <CardTitle>Event Name</CardTitle>
+                <div className="flex flex-row justify-between items-center">
+                    <CardTitle>Event Name</CardTitle>
+                    <div className="flex flex-row gap-2">
+                        <Link href="#rsvp">
+                            <Button size="icon" className="h-9 w-9">
+                                <CircleUser className="h-4 w-4"/>
+                                <span className="sr-only">RSVP</span>
+                            </Button>
+                        </Link>
+                        <Link href="/">
+                            <Button variant="secondary" size="icon" className="h-9 w-9">
+                                <CircleUser className="h-4 w-4"/>
+                                <span className="sr-only">Remind me</span>
+                            </Button>
+                        </Link>
+                        <Link href="/">
+                            <Button variant="outline" size="icon" className="h-9 w-9">
+                                <CircleUser className="h-4 w-4"/>
+                                <span className="sr-only">Event Photos</span>
+                            </Button>
+                        </Link>
+                        <Link href="/">
+                            <Button variant="outline" size="icon" className="h-9 w-9">
+                                <CircleUser className="h-4 w-4"/>
+                                <span className="sr-only">Add to Calendar</span>
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
             </CardHeader>
             <CardContent>
                 <Badge variant="secondary">Invite Only</Badge>
