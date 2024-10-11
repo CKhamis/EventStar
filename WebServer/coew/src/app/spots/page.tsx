@@ -3,11 +3,12 @@ import TopBar from "../../components/TopBar";
 import Footer from "@/components/Footer";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {CircleUser} from "lucide-react";
-import RTable from "@/components/RTable";
+import RTable from "@/app/spots/RTable";
 import {Button} from "@/components/ui/button";
 import {Badge} from "@/components/ui/badge";
 import Link from "next/link";
 import {useState} from "react";
+import TitleBar from "@/components/TitleBar";
 
 export default function Home() {
   const [totalRatings, setTotalRatings] = useState(0);
@@ -27,17 +28,7 @@ export default function Home() {
       <>
         <TopBar isLoggedIn={false}/>
         <div className="flex flex-1 flex-col gap-6 p-4 md:gap-5 md:p-8 container">
-          <div className="flex items-center gap-4">
-            <Link href="/">
-              <Button variant="outline" size="icon" className="h-9 w-9">
-                <CircleUser className="h-4 w-4"/>
-                <span className="sr-only">Home</span>
-              </Button>
-            </Link>
-            <h1 className="flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
-              Spot Ratings
-            </h1>
-          </div>
+          <TitleBar title="Spots" />
           <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
             <Card x-chunk="dashboard-01-chunk-0">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
