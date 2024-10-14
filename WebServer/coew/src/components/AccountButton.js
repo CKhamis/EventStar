@@ -1,3 +1,4 @@
+"use client";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -6,15 +7,16 @@ import {
     DropdownMenuTrigger
 } from "./ui/dropdown-menu";
 import {Button} from "./ui/button";
+import useSession from "next-auth";
 import {
     CircleUser,
 } from "lucide-react"
 import Link from "next/link"
-import Image from 'next/image';
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
-const AccountButton = ({ isLoggedIn= false }) => {
-    if(isLoggedIn){
+const AccountButton = () => {
+    const [session, setSession] = useSession;
+    if(!session){
         return (
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
