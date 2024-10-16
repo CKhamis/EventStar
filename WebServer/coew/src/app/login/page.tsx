@@ -14,6 +14,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { signInSchema } from "@/lib/zod";
+import {Loader2} from "lucide-react";
+import LoadingButton from "@/components/ui/LoadingButton";
 
 
 export default function Home() {
@@ -25,24 +27,14 @@ export default function Home() {
         },
     });
 
-    const handleSubmit = () => {
-        const state = {username, password};
-        console.log(state);
+    const onSubmit = async(values: z.infer<typeof  signInSchema) => {
+        try{
+            
+        }catch(error){
+            console.log(error);
+        }
+    }
 
-        const headers = {
-            'Content-Type': 'application/json',
-        };
-
-        axios
-            .post('http://localhost:85/api/auth/signin', state, {headers})
-            .then(function (response) {
-                console.log(response);
-                localStorage.setItem('token', response.data.token);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
 
     return (<>
             <TopBar/>
@@ -63,7 +55,7 @@ export default function Home() {
                             </div>
                         </div>
                         <Form {...form}>
-                            <form onSubmit={} className={}>
+                            <form onSubmit={form.handleSubmit(onSubmit)}>
                                 <FormField
                                     control={form.control}
                                     name="email"
@@ -103,9 +95,7 @@ export default function Home() {
                             </form>
 
                             <div className="grid gap-2">
-                                <Button type="button" className="w-full" onClick={handleSubmit}>
-                                    Sign In
-                                </Button>
+                                <LoadingButton text="Sign In" loading={form.formState.isSubmitting} />
                             </div>
 
                             <div className="mt-4 text-center text-sm">
