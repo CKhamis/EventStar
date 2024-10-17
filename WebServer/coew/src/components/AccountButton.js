@@ -37,7 +37,7 @@ const AccountButton = () => {
                     <DropdownMenuSeparator/>
                     <form action={handleSignOut}>
                         <DropdownMenuItem>
-                            <Button variant="link" type="submit" className="h-5">Log Out</Button>
+                            <Button variant="ghost" type="submit" className="h-5 p-0">Log Out</Button>
                         </DropdownMenuItem>
                     </form>
                 </DropdownMenuContent>

@@ -11,7 +11,7 @@ export default  function LoadingButton({ loading, text }: { loading: boolean, te
         )
     }else{
         return (
-            <Button>{text}</Button>
+            <Button variant="secondary">{text}</Button>
         )
     }
 }

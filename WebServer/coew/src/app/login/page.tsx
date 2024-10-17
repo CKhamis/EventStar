@@ -49,7 +49,7 @@ export default function SignIn() {
             <div className="mt-10 flex justify-center items-center">
                 <Card className="w-full max-w-sm rounded-none gradient">
                     <CardContent className="grid gap-4">
-                        <div className="flex flex-row gap-3 justify-start items-center p-6">
+                        <div className="flex flex-row gap-3 justify-start items-center pt-6">
                             <Image
                                 src={`/icons/COW Logo.svg`}
                                 alt={`Costi Online Logo`}
@@ -103,9 +103,7 @@ export default function SignIn() {
                                         </FormItem>
                                     )}
                                 />
-
-                                {/* Submit button will go here */}
-                                <LoadingButton loading={form.formState.isSubmitting} text="submit" />
+                                <LoadingButton loading={form.formState.isSubmitting} text="Log In" />
                             </form>
                         </Form>
                     </CardContent>
