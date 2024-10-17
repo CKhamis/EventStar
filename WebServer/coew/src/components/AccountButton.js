@@ -13,6 +13,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {handleSignOut} from "@/app/actions/authActions";
 
 const AccountButton = () => {
     const {data: session} = useSession();
@@ -34,7 +35,11 @@ const AccountButton = () => {
                     <DropdownMenuItem>Settings</DropdownMenuItem>
                     <DropdownMenuItem>Support</DropdownMenuItem>
                     <DropdownMenuSeparator/>
-                    <DropdownMenuItem>Logout</DropdownMenuItem>
+                    <form action={handleSignOut}>
+                        <DropdownMenuItem>
+                            <Button variant="link" type="submit" className="h-5">Log Out</Button>
+                        </DropdownMenuItem>
+                    </form>
                 </DropdownMenuContent>
             </DropdownMenu>
         );

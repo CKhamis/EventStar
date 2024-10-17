@@ -21,3 +21,7 @@ export async function handleCredentialsSignin({ email, password }: { email: stri
         throw error;
     }
 }
+
+export async function handleSignOut(){
+    await signOut();
+}
