@@ -2,7 +2,7 @@
 import TopBar from "../../components/TopBar";
 import Footer from "@/components/Footer";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {CircleUser} from "lucide-react";
+import {ChartLine, CircleUser, Crown, Pin, Scale} from "lucide-react";
 import RTable from "@/app/spots/RTable";
 import {Button} from "@/components/ui/button";
 import {Badge} from "@/components/ui/badge";
@@ -40,7 +40,7 @@ export default function Spots() {
                 <CardTitle className="text-sm font-medium">
                   Total Ratings
                 </CardTitle>
-                <CircleUser className="h-4 w-4 text-muted-foreground"/>
+                <Scale className="h-4 w-4 text-muted-foreground"/>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{totalRatings}</div>
@@ -54,7 +54,7 @@ export default function Spots() {
                 <CardTitle className="text-sm font-medium">
                   Average Rating
                 </CardTitle>
-                <CircleUser className="h-4 w-4 text-muted-foreground"/>
+                <ChartLine className="h-4 w-4 text-muted-foreground"/>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{averageRating}</div>
@@ -68,7 +68,7 @@ export default function Spots() {
                 <CardTitle className="text-sm font-medium">
                   Places Added
                 </CardTitle>
-                <CircleUser className="h-4 w-4 text-muted-foreground"/>
+                <Pin className="h-4 w-4 text-muted-foreground"/>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{placesAdded}</div>
@@ -80,7 +80,7 @@ export default function Spots() {
                 <CardTitle className="text-sm font-medium">
                   Top Rated Spot
                 </CardTitle>
-                <CircleUser className="h-4 w-4 text-muted-foreground"/>
+                <Crown className="h-4 w-4 text-muted-foreground"/>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{topRatedSpot}</div>
