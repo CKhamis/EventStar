@@ -1,24 +1,29 @@
 "use client";
-import TopBar from "../../components/TopBar";
-import {Card, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
-import {Label} from "@radix-ui/react-dropdown-menu";
-import {Input} from "@/components/ui/input";
-import {Button} from "@/components/ui/button";
-import Link from "next/link";
 import Image from "next/image";
-import axios from "axios";
-import {useState} from "react";
-import { Form } from "react-hook-form";
-import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+
 import { signInSchema } from "@/lib/zod";
-import {Loader2} from "lucide-react";
 import LoadingButton from "@/components/ui/LoadingButton";
+import { handleCredentialsSignin } from "@/app/actions/authActions";
+import { useState } from "react";
+import ErrorMessage from "@/components/ui/ErrorMessage";
+import TopBar from "@/components/TopBar";
 
-
-export default function Home() {
+export default function SignIn() {
+    const [globalError, setGlobalError] = useState<string>("");
     const form = useForm<z.infer<typeof signInSchema>>({
         resolver: zodResolver(signInSchema),
         defaultValues: {
@@ -27,16 +32,19 @@ export default function Home() {
         },
     });
 
-    const onSubmit = async(values: z.infer<typeof  signInSchema) => {
-        try{
-            
-        }catch(error){
-            console.log(error);
+    const onSubmit = async (values: z.infer<typeof signInSchema>) => {
+        try {
+            const result = await handleCredentialsSignin(values);
+            if (result?.message) {
+                setGlobalError(result.message);
+            }
+        } catch (error) {
+            console.log("An unexpected error occurred. Please try again.");
         }
-    }
+    };
 
-
-    return (<>
+    return (
+        <>
             <TopBar/>
             <div className="mt-10 flex justify-center items-center">
                 <Card className="w-full max-w-sm rounded-none gradient">
@@ -54,23 +62,26 @@ export default function Home() {
                                 <CardDescription>Enter your Costi Online Credentials.</CardDescription>
                             </div>
                         </div>
+                        {globalError && <ErrorMessage error={globalError} />}
                         <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)}>
+                            <form
+                                onSubmit={form.handleSubmit(onSubmit)}
+                                className="space-y-8"
+                            >
                                 <FormField
                                     control={form.control}
                                     name="email"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Email</FormLabel>
                                             <FormControl>
-                                                <Input
-                                                    type="email"
+                                                <Input type="email"
                                                     placeholder="Enter your email address"
                                                     autoComplete="off"
                                                     {...field}
                                                 />
                                             </FormControl>
-                                            <FormMessage/>
+                                            <FormMessage />
                                         </FormItem>
                                     )}
                                 />
@@ -78,7 +89,7 @@ export default function Home() {
                                 <FormField
                                     control={form.control}
                                     name="password"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Password</FormLabel>
                                             <FormControl>
@@ -88,25 +99,18 @@ export default function Home() {
                                                     {...field}
                                                 />
                                             </FormControl>
-                                            <FormMessage/>
+                                            <FormMessage />
                                         </FormItem>
                                     )}
                                 />
+
+                                {/* Submit button will go here */}
+                                <LoadingButton loading={form.formState.isSubmitting} text="submit" />
                             </form>
-
-                            <div className="grid gap-2">
-                                <LoadingButton text="Sign In" loading={form.formState.isSubmitting} />
-                            </div>
-
-                            <div className="mt-4 text-center text-sm">
-                                Don&apos;t have an account?{" "}
-                                <Link href="https://costionline.com/SignUp" className="underline">
-                                    Sign up
-                                </Link>
-                            </div>
                         </Form>
                     </CardContent>
                 </Card>
             </div>
-    </>);
+        </>
+    );
 }

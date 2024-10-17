@@ -5,13 +5,13 @@ export default  function LoadingButton({ loading, text }: { loading: boolean, te
     if(loading){
         return (
             <Button disabled>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                <Loader2 className="mr-2 animate-spin" />
                 Please wait
             </Button>
         )
     }else{
         return (
-            <Button className="mr-2 h-4 w-4">{text}</Button>
+            <Button>{text}</Button>
         )
     }
 }
