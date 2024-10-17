@@ -10,7 +10,7 @@ import Link from "next/link";
 import {useState} from "react";
 import TitleBar from "@/components/TitleBar";
 
-export default function Home() {
+export default function Spots() {
   const [totalRatings, setTotalRatings] = useState(0);
   const [totalRatingsStat, setTotalRatingsStat] = useState("#3 most active");
 
@@ -23,6 +23,11 @@ export default function Home() {
   const [topRatedSpot, setTopRatedSpot] = useState("Costi's house");
   const [topRatedSpotStat, setTopRatedSpotStat] = useState("Ranked 5th place globally");
 
+  const spotList = [
+    {id: 1, logoUrl: "", name: "Five Guys", price: "expensive", globalRating: "87", rated: false},
+    {id: 1, logoUrl: "", name: "Five Guys", price: "expensive", globalRating: "87", rated: true},
+    {id: 1, logoUrl: "", name: "Five Guys", price: "expensive", globalRating: "87", rated: false},
+  ];
 
   return (
       <>
@@ -83,7 +88,7 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
-          <RTable/>
+          <RTable spotList={spotList}/>
         </div>
         <Footer/>
       </>
